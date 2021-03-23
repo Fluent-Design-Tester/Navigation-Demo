@@ -125,7 +125,6 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Microsoft\UI\Xaml\Controls.cs" />
     <Compile Include="Resources\UI\Xaml\Print.xaml.cs">
       <DependentUpon>Print.xaml</DependentUpon>
     </Compile>

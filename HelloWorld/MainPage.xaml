@@ -14,33 +14,28 @@
         <Grid.Resources>
             <AcrylicBrush x:Key="NavigationViewExpandedPaneBackground"
                   BackgroundSource="HostBackdrop"
-                  TintColor="AliceBlue"
-                  TintOpacity="0.6"
-                  FallbackColor="White"/>
+                  TintColor="Azure"
+                  TintOpacity="0.4"
+                  FallbackColor="#E4E4E4"/>
         </Grid.Resources>
+
         <muxc:NavigationView 
-            IsTitleBarAutoPaddingEnabled="False"
             x:Name="navView" 
             Loaded="NavigationView_Loaded" 
             SelectionChanged="NavigationView_SelectionChanged"
-            PaneOpening="navView_PaneOpening"
-            IsBackButtonVisible="Collapsed"
+            IsBackButtonVisible="Visible"
+            IsBackEnabled="False"
             SelectionFollowsFocus="Disabled"
-            Header="Students"
+            Header="Students / Enrollments"
+            AlwaysShowHeader="False"
             PaneDisplayMode="Auto"
             Background="{StaticResource SystemChromeWhiteColor}" 
-            OpenPaneLength="320" 
-            UseLayoutRounding="True" 
+            OpenPaneLength="320"
+            UseLayoutRounding="False" 
             ScrollViewer.VerticalScrollBarVisibility="Auto" 
-            FontSize="14"
-            PaneTitle="STUDENT MANAGEMENT" 
-            CharacterSpacing="20" 
-            FontStretch="SemiExpanded" 
-            RequestedTheme="Default"
+            PaneTitle="UT-YCC Student Management"
+            IsTitleBarAutoPaddingEnabled="False"
             >
-            <muxc:NavigationView.PaneHeader>
-                <Image Source="/Assets/logo.png" HorizontalAlignment="Left" Margin="5,5,5,5"></Image>
-            </muxc:NavigationView.PaneHeader>
             <muxc:NavigationView.MenuItems>
                 <muxc:NavigationViewItem Icon="People" Content="Students" Tag="students" Width="320"/>
                 <muxc:NavigationViewItem Icon="Bookmarks" Content="Gradings" Tag="gradings" Width="320"/>
@@ -52,6 +47,8 @@
             <ScrollViewer>
                 <Frame x:Name="ContentFrame"/>
             </ScrollViewer>
+
         </muxc:NavigationView>
     </Grid>
+
 </Page>
