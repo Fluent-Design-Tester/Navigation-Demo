@@ -27,7 +27,7 @@
             IsBackEnabled="False"
             SelectionFollowsFocus="Disabled"
             Header="Students / Enrollments"
-            AlwaysShowHeader="False"
+            AlwaysShowHeader="True"
             PaneDisplayMode="Auto"
             Background="{StaticResource SystemChromeWhiteColor}" 
             OpenPaneLength="320"

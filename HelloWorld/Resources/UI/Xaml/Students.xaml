@@ -10,35 +10,68 @@
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="351"/>
-        </Grid.ColumnDefinitions>
-        <Grid>
-            <Button 
-            Content="Import Students" 
-            Margin="34,36,0,0" 
-            VerticalAlignment="Top" 
-            Click="Button_Click"/>
-            <AutoSuggestBox HorizontalAlignment="Left" Margin="978,36,0,0" Width="162"/>
-            <ComboBox Margin="830,36,0,0" Width="143" PlaceholderText="Attendance Year">
-                <x:String>1st Year</x:String>
-                <x:String>2nd Year</x:String>
-                <x:String>3rd Year</x:String>
-                <x:String>4th Year</x:String>
-            </ComboBox>
-            <ComboBox Margin="741,36,0,0" Width="84" PlaceholderText="Major">
-                <x:String>ICT</x:String>
-                <x:String>EcE</x:String>
-                <x:String>Pre</x:String>
-                <x:String>Ame</x:String>
-            </ComboBox>
-            <ComboBox Margin="600,36,0,0" Width="136" PlaceholderText="Academic Year">
-                <x:String>2015-2016</x:String>
-                <x:String>2016-2017</x:String>
-                <x:String>2017-2018</x:String>
-                <x:String>2018-2019</x:String>
-            </ComboBox>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="VisualState_Large">
+                    <VisualState.StateTriggers>
+                        <!-- VisualState to be triggered when the window width is >=1008 effective pixels. -->
+                        <AdaptiveTrigger MinWindowWidth="1008" />
+                    </VisualState.StateTriggers>
+
+                    <VisualState.Setters>
+                        <!-- <Setter Target="Button_ImportStudents.Content" Value="Hahaha"/> -->
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="VisualState_Medium">
+                    <VisualState.StateTriggers>
+                        <!-- VisualState to be triggered when the window width is >=1008 effective pixels. -->
+                        <AdaptiveTrigger MinWindowWidth="640" />
+                    </VisualState.StateTriggers>
+
+                    <VisualState.Setters>
+                        <Setter Target="Button_ImportStudents.Content" Value="Hahaha"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <Grid VerticalAlignment="Top" HorizontalAlignment="Stretch">
+
+            <StackPanel x:Name="StackPanel_Filters" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20, 0, 20, 0">
+                <ComboBox Width="Auto" PlaceholderText="Academic Year" Margin="0, 0, 7, 0" >
+                    <x:String>2015-2016</x:String>
+                    <x:String>2016-2017</x:String>
+                    <x:String>2017-2018</x:String>
+                    <x:String>2018-2019</x:String>
+                </ComboBox>
+                <ComboBox Width="Auto" PlaceholderText="Major" Margin="0, 0, 7, 0">
+                    <x:String>ICT</x:String>
+                    <x:String>EcE</x:String>
+                    <x:String>Pre</x:String>
+                    <x:String>Ame</x:String>
+                </ComboBox>
+                <ComboBox Width="Auto" PlaceholderText="Attendance Year" Margin="0, 0, 7, 0">
+                    <x:String>1st Year</x:String>
+                    <x:String>2nd Year</x:String>
+                    <x:String>3rd Year</x:String>
+                    <x:String>4th Year</x:String>
+                </ComboBox>
+                <AutoSuggestBox HorizontalAlignment="Left" Width="162"/>
+            </StackPanel>
+
+            <CommandBar Background="Transparent" IsOpen="False" DefaultLabelPosition="Right" HorizontalAlignment="Right">
+                <AppBarButton Icon="Add" Label="Add"/>
+                <AppBarButton Icon="Edit" Label="Edit"/>
+                <AppBarButton Icon="Share" Label="Share"/>
+                <CommandBar.SecondaryCommands>
+                    <AppBarButton Icon="Setting" Label="Settings">
+                        <AppBarButton.KeyboardAccelerators>
+                            <KeyboardAccelerator Modifiers="Control" Key="I" />
+                        </AppBarButton.KeyboardAccelerators>
+                    </AppBarButton>
+                </CommandBar.SecondaryCommands>
+            </CommandBar>
         </Grid>
     </Grid>
 </Page>
