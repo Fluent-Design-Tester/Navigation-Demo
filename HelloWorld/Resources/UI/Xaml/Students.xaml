@@ -10,68 +10,116 @@
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls">
 
     <Grid>
+        <!-- Responsive layout -->
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
-                <VisualState x:Name="VisualState_Large">
+                <!-- Triggered when the window width >=1366 effective pixels. -->
+                <VisualState x:Name="VisualState_Extra_Large">
                     <VisualState.StateTriggers>
-                        <!-- VisualState to be triggered when the window width is >=1008 effective pixels. -->
-                        <AdaptiveTrigger MinWindowWidth="1008" />
+                        <AdaptiveTrigger MinWindowWidth="1366" />
                     </VisualState.StateTriggers>
 
                     <VisualState.Setters>
-                        <!-- <Setter Target="Button_ImportStudents.Content" Value="Hahaha"/> -->
+                        <Setter Target="SearchBox.Width" Value="250"/>
                     </VisualState.Setters>
                 </VisualState>
 
-                <VisualState x:Name="VisualState_Medium">
+                <!-- Triggered when the window width >=1010 effective pixels. -->
+                <VisualState x:Name="VisualState_Large">
                     <VisualState.StateTriggers>
-                        <!-- VisualState to be triggered when the window width is >=1008 effective pixels. -->
-                        <AdaptiveTrigger MinWindowWidth="640" />
+                        <AdaptiveTrigger MinWindowWidth="1010" />
                     </VisualState.StateTriggers>
 
                     <VisualState.Setters>
-                        <Setter Target="Button_ImportStudents.Content" Value="Hahaha"/>
+                        <Setter Target="SearchBox.Width" Value="130"/>
+                    </VisualState.Setters>
+                </VisualState>
+
+                <!-- Triggered when the window width >=800 effective pixels. -->
+                <VisualState x:Name="VisualState_Medium">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="800" />
+                    </VisualState.StateTriggers>
+
+                    <VisualState.Setters>
+                        <Setter Target="SearchBox.Width" Value="180"/>
+                    </VisualState.Setters>
+                </VisualState>
+
+                <!-- Triggered when the window width >=490 effective pixels. -->
+                <VisualState x:Name="VisualState_Small">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="490" />
+                    </VisualState.StateTriggers>
+
+                    <VisualState.Setters>
+                        <!-- Repositioning search box -->
+                        <Setter Target="SearchBox.(Grid.Row)" Value="1" />
+                        <Setter Target="SearchBox.(Grid.Column)" Value="0"/>
+
+                        <!-- Resizing search box width -->
+                        <Setter Target="SearchBox.Width" Value="374"/>
+                        <Setter Target="SearchBox.Margin" Value="19, 0, 0, 0"/>
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
+        <!-- End responsive layout -->
 
         <Grid VerticalAlignment="Top" HorizontalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
 
-            <StackPanel x:Name="StackPanel_Filters" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20, 0, 20, 0">
-                <ComboBox Width="Auto" PlaceholderText="Academic Year" Margin="0, 0, 7, 0" >
+            <Grid x:Name="StackPanel_Filters" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20, 0, 10, 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                
+                <ComboBox Grid.Column="0" Width="Auto" PlaceholderText="Academic Year" Margin="0, 0, 7, 0" >
                     <x:String>2015-2016</x:String>
                     <x:String>2016-2017</x:String>
                     <x:String>2017-2018</x:String>
                     <x:String>2018-2019</x:String>
                 </ComboBox>
-                <ComboBox Width="Auto" PlaceholderText="Major" Margin="0, 0, 7, 0">
+                <ComboBox Grid.Column="1" Width="Auto" PlaceholderText="Major" Margin="0, 0, 7, 0">
                     <x:String>ICT</x:String>
                     <x:String>EcE</x:String>
                     <x:String>Pre</x:String>
                     <x:String>Ame</x:String>
                 </ComboBox>
-                <ComboBox Width="Auto" PlaceholderText="Attendance Year" Margin="0, 0, 7, 0">
+                <ComboBox Grid.Column="2" Width="Auto" PlaceholderText="Attendance Year" Margin="0, 0, 0, 0">
                     <x:String>1st Year</x:String>
                     <x:String>2nd Year</x:String>
                     <x:String>3rd Year</x:String>
                     <x:String>4th Year</x:String>
                 </ComboBox>
-                <AutoSuggestBox HorizontalAlignment="Left" Width="162"/>
-            </StackPanel>
+            </Grid>
 
-            <CommandBar Background="Transparent" IsOpen="False" DefaultLabelPosition="Right" HorizontalAlignment="Right">
-                <AppBarButton Icon="Add" Label="Add"/>
-                <AppBarButton Icon="Edit" Label="Edit"/>
-                <AppBarButton Icon="Share" Label="Share"/>
+            <AutoSuggestBox Name="SearchBox"  Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="170" PlaceholderText="Search" QueryIcon="Find"/>
+
+            <CommandBar x:Name="CommandBar" Grid.Row="0" Grid.Column="2" Background="Transparent" DefaultLabelPosition="Right" HorizontalAlignment="Right">
+                <AppBarButton Icon="Add" Label="Add" />
+                <AppBarButton Icon="Edit" Label="Edit" />
+                <AppBarButton Icon="Delete" Label="Delete" />
+                <AppBarButton Icon="Print" Label="Print" />
+
                 <CommandBar.SecondaryCommands>
-                    <AppBarButton Icon="Setting" Label="Settings">
-                        <AppBarButton.KeyboardAccelerators>
-                            <KeyboardAccelerator Modifiers="Control" Key="I" />
-                        </AppBarButton.KeyboardAccelerators>
-                    </AppBarButton>
+                    <AppBarButton Label="Like"/>
+                    <AppBarButton Label="Dislike"/>
                 </CommandBar.SecondaryCommands>
             </CommandBar>
         </Grid>
+        
+        
     </Grid>
 </Page>

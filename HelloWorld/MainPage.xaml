@@ -10,7 +10,7 @@
     Background="{StaticResource NavigationViewExpandedPaneBackground}"
     >
 
-    <Grid x:Name="AppTitleBar" Background="Transparent">
+    <Grid x:Name="AppTitleBar" Background="Transparent" SizeChanged="MainPage_SizeChanged">
         <Grid.Resources>
             <AcrylicBrush x:Key="NavigationViewExpandedPaneBackground"
                   BackgroundSource="HostBackdrop"

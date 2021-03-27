@@ -10,6 +10,7 @@ using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Windows.ApplicationModel;
+using System.Diagnostics;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -20,6 +21,17 @@ namespace HelloWorld
         public MainPage()
         {
             this.InitializeComponent();
+            this.SizeChanged += MainPage_SizeChanged;
+        }
+
+        private void MainPage_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            //Get the current Windows Size
+            var bounds = Window.Current.Bounds;
+            double height = bounds.Height;
+            // Debug.WriteLine(height);
+            double width = bounds.Width;
+            Debug.WriteLine(width);
         }
 
         private void NavigationView_Loaded(object sender, RoutedEventArgs e)
