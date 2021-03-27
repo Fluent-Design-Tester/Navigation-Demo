@@ -60,7 +60,7 @@ namespace HelloWorld
                 // Place the frame in the current Window
                 Window.Current.Content = rootFrame;
             }
-
+            
             if (e.PrelaunchActivated == false)
             {
                 if (rootFrame.Content == null)
@@ -70,6 +70,8 @@ namespace HelloWorld
                     // parameter
                     rootFrame.Navigate(typeof(MainPage), e.Arguments);
                 }
+
+
                 // Ensure the current window is active
                 Window.Current.Activate();
             }
