@@ -120,6 +120,7 @@
 
             <!--  Data Grid  -->
             <controls:DataGrid
+                x:Name="DataGrid_Students"
                 Grid.Row="1"
                 Margin="20,20,0,0"
                 HorizontalAlignment="Stretch"
@@ -191,6 +192,9 @@
                         <!--  Resizing search box width  -->
                         <Setter Target="SearchBox.Width" Value="335" />
                         <Setter Target="SearchBox.Margin" Value="19, 8, 0, 0" />
+
+                        <!--  Reassigning frezz count column in data grid  -->
+                        <Setter Target="DataGrid_Students.FrozenColumnCount" Value="2" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
