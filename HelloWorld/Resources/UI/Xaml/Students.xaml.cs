@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HelloWorld.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -23,9 +24,13 @@ namespace HelloWorld
     /// </summary>
     public sealed partial class Students : Page
     {
+        public List<Reminder> Reminders;
+
         public Students()
         {
             this.InitializeComponent();
+            Reminders = Sample.GetRemindersSample();
+            Console.WriteLine(Reminders);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

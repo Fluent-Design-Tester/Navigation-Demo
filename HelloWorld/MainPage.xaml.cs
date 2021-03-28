@@ -53,7 +53,7 @@ namespace HelloWorld
                 switch (item.Tag.ToString())
                 {
                     case "students":
-                        sender.Header = "Students / Enrollments";
+                        sender.Header = "Students";
                         ContentFrame.Navigate(typeof(Students));
                         break;
                     case "gradings":

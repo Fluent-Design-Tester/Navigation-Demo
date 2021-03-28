@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:HelloWorld"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
@@ -65,64 +66,83 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
         <!-- End responsive layout -->
-
-        <StackPanel>
-            <Grid VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="0, 0, 0, 20">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-
-                <Grid x:Name="Grid_Filters" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="20, 0, 10, 0">
-
+            <StackPanel>
+                <Grid VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="0, 0, 0, 20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
                     </Grid.ColumnDefinitions>
 
-                    <ComboBox Grid.Column="0" Width="120" Header="Academic Year" PlaceholderText="2015-2016" Margin="0, 0, 7, 0" CornerRadius="0"  BorderThickness="1" BorderBrush="#B3B3B3">
-                        <x:String>2015-2016</x:String>
-                        <x:String>2016-2017</x:String>
-                        <x:String>2017-2018</x:String>
-                        <x:String>2018-2019</x:String>
-                    </ComboBox>
-                    <ComboBox Grid.Column="1" Width="80" Header="Major" PlaceholderText="ICT" Margin="0, 0, 7, 0" CornerRadius="0"  BorderThickness="1" BorderBrush="#B3B3B3">
-                        <x:String>ICT</x:String>
-                        <x:String>EcE</x:String>
-                        <x:String>Pre</x:String>
-                        <x:String>Ame</x:String>
-                    </ComboBox>
-                    <ComboBox Grid.Column="2" Width="120" Header="Attendance Year" PlaceholderText="1st Year" Margin="0, 0, 0, 0" CornerRadius="0"  BorderThickness="1" BorderBrush="#B3B3B3">
-                        <x:String>1st Year</x:String>
-                        <x:String>2nd Year</x:String>
-                        <x:String>3rd Year</x:String>
-                        <x:String>4th Year</x:String>
-                    </ComboBox>
+                    <Grid x:Name="Grid_Filters" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="20, 0, 10, 0">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <ComboBox Grid.Column="0" Width="120" Header="Academic Year" PlaceholderText="2015-2016" Margin="0, 0, 7, 0" CornerRadius="0"  BorderThickness="1" BorderBrush="#B3B3B3">
+                            <x:String>2015-2016</x:String>
+                            <x:String>2016-2017</x:String>
+                            <x:String>2017-2018</x:String>
+                            <x:String>2018-2019</x:String>
+                        </ComboBox>
+                        <ComboBox Grid.Column="1" Width="80" Header="Major" PlaceholderText="ICT" Margin="0, 0, 7, 0" CornerRadius="0"  BorderThickness="1" BorderBrush="#B3B3B3">
+                            <x:String>ICT</x:String>
+                            <x:String>EcE</x:String>
+                            <x:String>Pre</x:String>
+                            <x:String>Ame</x:String>
+                        </ComboBox>
+                        <ComboBox Grid.Column="2" Width="120" Header="Attendance Year" PlaceholderText="1st Year" Margin="0, 0, 0, 0" CornerRadius="0"  BorderThickness="1" BorderBrush="#B3B3B3">
+                            <x:String>1st Year</x:String>
+                            <x:String>2nd Year</x:String>
+                            <x:String>3rd Year</x:String>
+                            <x:String>4th Year</x:String>
+                        </ComboBox>
+                    </Grid>
+
+                    <AutoSuggestBox Name="SearchBox"  Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="170" PlaceholderText="Mg Aung . . ." QueryIcon="Find" CornerRadius="0" BorderThickness="1" BorderBrush="#B3B3B3"/>
+
+                    <CommandBar x:Name="CommandBar" Grid.Row="0" Grid.Column="2" Background="Transparent" DefaultLabelPosition="Right" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                        <AppBarButton Icon="Add" Label="Add" />
+                        <AppBarButton Icon="Edit" Label="Edit" />
+                        <AppBarButton Icon="Delete" Label="Delete" />
+                        <AppBarButton Icon="Print" Label="Print" />
+
+                        <CommandBar.SecondaryCommands>
+                            <AppBarButton Icon="ContactInfo" Label="About"/>
+                        </CommandBar.SecondaryCommands>
+                    </CommandBar>
                 </Grid>
 
-                <AutoSuggestBox Name="SearchBox"  Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="170" PlaceholderText="Mg Aung . . ." QueryIcon="Find" CornerRadius="0" BorderThickness="1" BorderBrush="#B3B3B3"/>
+                <!-- <Rectangle Height="0.1" Width="Auto" Fill="#E4E4E4" Margin="20, 0, 20, 0"/> -->
 
-                <CommandBar x:Name="CommandBar" Grid.Row="0" Grid.Column="2" Background="Transparent" DefaultLabelPosition="Right" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                    <AppBarButton Icon="Add" Label="Add" />
-                    <AppBarButton Icon="Edit" Label="Edit" />
-                    <AppBarButton Icon="Delete" Label="Delete" />
-                    <AppBarButton Icon="Print" Label="Print" />
+                <!-- Data Grid -->
 
-                    <CommandBar.SecondaryCommands>
-                        <AppBarButton Icon="ContactInfo" Label="About"/>
-                    </CommandBar.SecondaryCommands>
-                </CommandBar>
-            </Grid>
 
-            <Rectangle Height="0.1" Width="Auto" Fill="#E4E4E4" Margin="20, 0, 20, 0"/>
-        </StackPanel>
-
+                <controls:DataGrid 
+                    Margin="20,20,20,20" 
+                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                    AutoGenerateColumns="True" 
+                    AlternatingRowBackground="WhiteSmoke"
+                    AlternatingRowForeground="Black"
+                    CanUserSortColumns="True"
+                    CanUserReorderColumns="False"
+                    CanUserResizeColumns="True"
+                    ColumnHeaderHeight="32"
+                    MaxColumnWidth="400"
+                    FrozenColumnCount="4"
+                    GridLinesVisibility="Vertical"
+                    HeadersVisibility="All"
+                    IsReadOnly="True"
+                    SelectionMode="Single"
+                    ItemsSource="{x:Bind Reminders}"/>
+            </StackPanel>
     </Grid>
 </Page>
