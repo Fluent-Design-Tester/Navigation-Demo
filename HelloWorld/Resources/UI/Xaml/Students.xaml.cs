@@ -1,6 +1,9 @@
-﻿using HelloWorld.Models;
+﻿using HelloWorld.Dto;
+using HelloWorld.Models;
+using Microsoft.Toolkit.Uwp.UI.Controls;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -24,19 +27,65 @@ namespace HelloWorld
     /// </summary>
     public sealed partial class Students : Page
     {
-        public List<Reminder> Reminders;
+        public List<Student> StudentList;
 
         public Students()
         {
             this.InitializeComponent();
-            Reminders = Sample.GetRemindersSample();
-            Console.WriteLine(Reminders);
+            /*Reminders = Sample.GetRemindersSample();
+            Console.WriteLine(Reminders);*/
+
+            StudentModel student = new StudentModel();
+            StudentList = student.getStudent();
         }
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
+        private void DataGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            /*if (e.PropertyDescriptor is PropertyDescriptor descriptor)
+            {
+                e.Column.Header = descriptor.DisplayName ?? descriptor.Name;
+            }*/
+
+            switch (e.PropertyName)
+            {
+                case nameof(Student.student_id):
+                    e.Column.Header = "No.";
+                    break;
+
+                case nameof(Student.name):
+                    e.Column.Header = "Name";
+                    break;
+
+                case nameof(Student.gender):
+                    e.Column.Header = "Gender";
+                    break;
+
+                case nameof(Student.nrc):
+                    e.Column.Header = "NRC";
+                    break;
+
+                case nameof(Student.birthday):
+                    e.Column.Header = "Birthday";
+                    break;
+
+                case nameof(Student.phone):
+                    e.Column.Header = "Phone";
+                    break;
+
+                case nameof(Student.address):
+                    e.Column.Header = "Address";
+                    break;
+
+                case nameof(Student.hostel_address):
+                    e.Column.Header = "Hostel Address";
+                    break;
+            }
+        }
     }
 }

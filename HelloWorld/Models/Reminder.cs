@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HelloWorld.Database;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,9 @@ namespace HelloWorld.Models
     {
         public static List<Reminder> GetRemindersSample()
         {
+            // Testing database connection
+            DatabaseConnection db = new DatabaseConnection();
+
             var reminders = new List<Reminder>();
 
             reminders.Add(new Reminder { ID = 1, Name = "Reminder 1", Time = "11:51", IsActive = true });
