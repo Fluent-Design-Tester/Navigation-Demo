@@ -1,5 +1,4 @@
-﻿
-    <Page
+﻿<Page
     x:Class="HelloWorld.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -45,9 +44,7 @@
                 <muxc:NavigationViewItem Icon="Admin" Content="Users" Tag="users" Width="320"/>
             </muxc:NavigationView.MenuItems>
 
-            <ScrollViewer>
-                <Frame x:Name="ContentFrame"/>
-            </ScrollViewer>
+            <Frame x:Name="ContentFrame"/>
 
         </muxc:NavigationView>
     </Grid>
