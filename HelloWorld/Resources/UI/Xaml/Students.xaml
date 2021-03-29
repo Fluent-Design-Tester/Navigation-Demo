@@ -93,9 +93,10 @@
                     BorderBrush="#B3B3B3"
                     BorderThickness="1"
                     CornerRadius="0"
-                    PlaceholderText="Mg Aung . . ."
+                    PlaceholderText="Search . . ."
                     QueryIcon="Find"
-                    TextChanged="AutoSuggestBox_TextChanged" />
+                    TextChanged="AutoSuggestBox_TextChanged"
+                    ToolTipService.ToolTip="Searchable Fields: Name, NRC, Birthday and Phone" />
 
                 <CommandBar
                     x:Name="CommandBar"

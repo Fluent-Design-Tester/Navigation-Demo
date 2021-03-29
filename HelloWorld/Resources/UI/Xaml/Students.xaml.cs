@@ -86,10 +86,15 @@ namespace HelloWorld
             string searchString = sender.Text.ToLower().Trim();
             var matchedItems = new List<Student>();
 
-            foreach(var student in StudentList)
+            // Searchable Fields: Name, NRC, Birthday and Phone
+            foreach (var student in StudentList)
             {
                 if (student.name.ToLower().Contains(searchString)) matchedItems.Add(student);
+                else if (student.nrc.ToLower().Contains(searchString)) matchedItems.Add(student);
+                else if (student.birthday.ToLower().Contains(searchString)) matchedItems.Add(student);
+                else if (student.phone.Contains(searchString)) matchedItems.Add(student);
             }
+
             var bindingList = new BindingList<Student>(matchedItems);
             DataGrid_Students.ItemsSource = bindingList;
         }
