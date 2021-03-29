@@ -98,5 +98,10 @@ namespace HelloWorld
             var bindingList = new BindingList<Student>(matchedItems);
             DataGrid_Students.ItemsSource = bindingList;
         }
+
+        private void ButtonClick_About(object sender, RoutedEventArgs e)
+        {
+            SplitView_OnClickAbout.IsPaneOpen = true;
+        }
     }
 }

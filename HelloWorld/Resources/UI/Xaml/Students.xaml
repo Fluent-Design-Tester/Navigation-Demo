@@ -112,7 +112,10 @@
                     <AppBarButton Icon="Print" Label="Print" />
 
                     <CommandBar.SecondaryCommands>
-                        <AppBarButton Icon="ContactInfo" Label="About" />
+                        <AppBarButton
+                            Click="ButtonClick_About"
+                            Icon="ContactInfo"
+                            Label="About" />
                     </CommandBar.SecondaryCommands>
                 </CommandBar>
             </Grid>
@@ -144,6 +147,248 @@
                 SelectionMode="Extended" />
             <!--  End data grid  -->
         </Grid>
+
+        <!--  Split view on click About button  -->
+        <SplitView
+            x:Name="SplitView_OnClickAbout"
+            CompactPaneLength="48"
+            DisplayMode="Overlay"
+            IsPaneOpen="False"
+            OpenPaneLength="400"
+            PaneBackground="{ThemeResource AppBarBackgroundThemeBrush}"
+            PanePlacement="Right">
+            <SplitView.Pane>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock
+                        x:Name="PaneHeader"
+                        Margin="30,30,0,0"
+                        Style="{StaticResource TitleTextBlockStyle}"
+                        Text="Students" />
+
+                    <Grid Grid.Row="1" Margin="30,5,30,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock
+                            Grid.Row="0"
+                            Foreground="Gray"
+                            Text="Students of the University filtered by academic year, major and attendance year"
+                            TextWrapping="WrapWholeWords" />
+
+                        <TextBlock
+                            Grid.Row="1"
+                            Margin="0,20,0,-20"
+                            FontSize="15"
+                            Style="{StaticResource BaseTextBlockStyle}"
+                            Text="Fields List"
+                            TextWrapping="WrapWholeWords" />
+
+                        <!--  Fields List  -->
+                        <Grid Grid.Row="2" Margin="0,20,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <StackPanel
+                                Grid.Row="0"
+                                Margin="0,10,0,0"
+                                Orientation="Horizontal">
+                                <FontIcon
+                                    Margin="0,0,10,0"
+                                    FontFamily="Segoe MDL2 Assets"
+                                    FontSize="8"
+                                    Foreground="Gray"
+                                    Glyph="&#xE7C8;" />
+                                <TextBlock Text="Name" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="1"
+                                Margin="0,10,0,0"
+                                Orientation="Horizontal">
+                                <FontIcon
+                                    Margin="0,0,10,0"
+                                    FontFamily="Segoe MDL2 Assets"
+                                    FontSize="8"
+                                    Foreground="Gray"
+                                    Glyph="&#xE7C8;" />
+                                <TextBlock Text="Gender" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="2"
+                                Margin="0,10,0,0"
+                                Orientation="Horizontal">
+                                <FontIcon
+                                    Margin="0,0,10,0"
+                                    FontFamily="Segoe MDL2 Assets"
+                                    FontSize="8"
+                                    Foreground="Gray"
+                                    Glyph="&#xE7C8;" />
+                                <TextBlock Text="NRC" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="3"
+                                Margin="0,10,0,0"
+                                Orientation="Horizontal">
+                                <FontIcon
+                                    Margin="0,0,10,0"
+                                    FontFamily="Segoe MDL2 Assets"
+                                    FontSize="8"
+                                    Foreground="Gray"
+                                    Glyph="&#xE7C8;" />
+                                <TextBlock Text="Birthday" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="4"
+                                Margin="0,10,0,0"
+                                Orientation="Horizontal">
+                                <FontIcon
+                                    Margin="0,0,10,0"
+                                    FontFamily="Segoe MDL2 Assets"
+                                    FontSize="8"
+                                    Foreground="Gray"
+                                    Glyph="&#xE7C8;" />
+                                <TextBlock Text="Phone Number" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="5"
+                                Margin="0,10,0,0"
+                                Orientation="Horizontal">
+                                <FontIcon
+                                    Margin="0,0,10,0"
+                                    FontFamily="Segoe MDL2 Assets"
+                                    FontSize="8"
+                                    Foreground="Gray"
+                                    Glyph="&#xE7C8;" />
+                                <TextBlock Text="Address" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="6"
+                                Margin="0,10,0,0"
+                                Orientation="Horizontal">
+                                <FontIcon
+                                    Margin="0,0,10,0"
+                                    FontFamily="Segoe MDL2 Assets"
+                                    FontSize="8"
+                                    Foreground="Gray"
+                                    Glyph="&#xE7C8;" />
+                                <TextBlock Text="Hostel Address" />
+                            </StackPanel>
+                        </Grid>
+                        <!--  End fields list  -->
+
+                        <TextBlock
+                            Grid.Row="3"
+                            Margin="0,20,0,0"
+                            FontSize="15"
+                            Style="{StaticResource BaseTextBlockStyle}"
+                            Text="Searchable Fields List"
+                            TextWrapping="WrapWholeWords" />
+
+                        <!--  Searchable fields List  -->
+                        <Grid Grid.Row="4">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <StackPanel
+                                Grid.Row="0"
+                                Margin="0,10,0,0"
+                                Orientation="Horizontal">
+                                <FontIcon
+                                    Margin="0,0,10,0"
+                                    FontFamily="Segoe MDL2 Assets"
+                                    FontSize="8"
+                                    Foreground="Gray"
+                                    Glyph="&#xE7C8;" />
+                                <TextBlock Text="Name" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="1"
+                                Margin="0,10,0,0"
+                                Orientation="Horizontal">
+                                <FontIcon
+                                    Margin="0,0,10,0"
+                                    FontFamily="Segoe MDL2 Assets"
+                                    FontSize="8"
+                                    Foreground="Gray"
+                                    Glyph="&#xE7C8;" />
+                                <TextBlock Text="NRC" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="2"
+                                Margin="0,10,0,0"
+                                Orientation="Horizontal">
+                                <FontIcon
+                                    Margin="0,0,10,0"
+                                    FontFamily="Segoe MDL2 Assets"
+                                    FontSize="8"
+                                    Foreground="Gray"
+                                    Glyph="&#xE7C8;" />
+                                <TextBlock Text="Birthday" />
+                            </StackPanel>
+                            <StackPanel
+                                Grid.Row="3"
+                                Margin="0,10,0,0"
+                                Orientation="Horizontal">
+                                <FontIcon
+                                    Margin="0,0,10,0"
+                                    FontFamily="Segoe MDL2 Assets"
+                                    FontSize="8"
+                                    Foreground="Gray"
+                                    Glyph="&#xE7C8;" />
+                                <TextBlock Text="Phone Number" />
+                            </StackPanel>
+                        </Grid>
+                        <!--  End searchable fields list  -->
+
+                        <TextBlock
+                            Grid.Row="5"
+                            Margin="0,20,0,0"
+                            FontSize="15"
+                            Style="{StaticResource BaseTextBlockStyle}"
+                            Text="Other Information"
+                            TextWrapping="WrapWholeWords" />
+
+                        <TextBlock
+                            Grid.Row="6"
+                            Margin="0,10,0,0"
+                            Foreground="Gray"
+                            Text="Searching will result from the data which is filtered by academic year, major and attendance year."
+                            TextWrapping="WrapWholeWords" />
+
+                        <TextBlock
+                            Grid.Row="7"
+                            Margin="0,10,0,0"
+                            Foreground="Gray"
+                            Text="All academic years, majors and attendance years data are taken from this official website: https://www.google.com"
+                            TextWrapping="Wrap" />
+                    </Grid>
+                </Grid>
+            </SplitView.Pane>
+        </SplitView>
+        <!--  End split view  -->
+
 
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
