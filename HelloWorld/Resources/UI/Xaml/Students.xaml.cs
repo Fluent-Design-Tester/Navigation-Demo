@@ -4,6 +4,7 @@ using Microsoft.Toolkit.Uwp.UI.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -32,17 +33,9 @@ namespace HelloWorld
         public Students()
         {
             this.InitializeComponent();
-            /*Reminders = Sample.GetRemindersSample();
-            Console.WriteLine(Reminders);*/
 
             StudentModel student = new StudentModel();
             StudentList = student.getStudent();
-        }
-
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void DataGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
@@ -86,6 +79,19 @@ namespace HelloWorld
                     e.Column.Header = "Hostel Address";
                     break;
             }
+        }
+
+        private void AutoSuggestBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+        {
+            string searchString = sender.Text.ToLower().Trim();
+            var matchedItems = new List<Student>();
+
+            foreach(var student in StudentList)
+            {
+                if (student.name.ToLower().Contains(searchString)) matchedItems.Add(student);
+            }
+            var bindingList = new BindingList<Student>(matchedItems);
+            DataGrid_Students.ItemsSource = bindingList;
         }
     }
 }

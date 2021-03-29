@@ -94,7 +94,8 @@
                     BorderThickness="1"
                     CornerRadius="0"
                     PlaceholderText="Mg Aung . . ."
-                    QueryIcon="Find" />
+                    QueryIcon="Find"
+                    TextChanged="AutoSuggestBox_TextChanged" />
 
                 <CommandBar
                     x:Name="CommandBar"
