@@ -123,6 +123,9 @@
     <Compile Include="Dto\Student.cs" />
     <Compile Include="Models\Reminder.cs" />
     <Compile Include="Models\StudentModel.cs" />
+    <Compile Include="Resources\UI\Xaml\AddStudent.xaml.cs">
+      <DependentUpon>AddStudent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Resources\UI\Xaml\Gradings.xaml.cs">
       <DependentUpon>Gradings.xaml</DependentUpon>
     </Compile>
@@ -164,6 +167,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Resources\UI\Xaml\AddStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\UI\Xaml\Gradings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

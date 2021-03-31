@@ -106,7 +106,10 @@
                     VerticalAlignment="Bottom"
                     Background="Transparent"
                     DefaultLabelPosition="Right">
-                    <AppBarButton Icon="Add" Label="Add" />
+                    <AppBarButton
+                        Click="Add_Click"
+                        Icon="Add"
+                        Label="Add" />
                     <AppBarButton Icon="Edit" Label="Edit" />
                     <AppBarButton Icon="Delete" Label="Delete" />
                     <AppBarButton Icon="Print" Label="Print" />

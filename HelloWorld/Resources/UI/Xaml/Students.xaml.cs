@@ -1,5 +1,6 @@
 ﻿using HelloWorld.Dto;
 using HelloWorld.Models;
+using HelloWorld.Resources.UI.Xaml;
 using Microsoft.Toolkit.Uwp.UI.Controls;
 using System;
 using System.Collections.Generic;
@@ -102,6 +103,11 @@ namespace HelloWorld
         private void ButtonClick_About(object sender, RoutedEventArgs e)
         {
             SplitView_OnClickAbout.IsPaneOpen = true;
+        }
+
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(AddStudent));
         }
     }
 }
