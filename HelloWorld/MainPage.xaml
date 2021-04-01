@@ -2,49 +2,77 @@
     x:Class="HelloWorld.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:HelloWorld"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:local="using:HelloWorld"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
-    mc:Ignorable="d"
     Background="{StaticResource NavigationViewExpandedPaneBackground}"
-    >
+    mc:Ignorable="d">
 
-    <Grid x:Name="AppTitleBar" Background="Transparent" SizeChanged="MainPage_SizeChanged">
+    <Grid
+        x:Name="AppTitleBar"
+        Background="Transparent"
+        SizeChanged="MainPage_SizeChanged">
         <Grid.Resources>
-            <AcrylicBrush x:Key="NavigationViewExpandedPaneBackground"
-                  BackgroundSource="HostBackdrop"
-                  TintColor="Azure"
-                  TintOpacity="0.4"
-                  FallbackColor="#E4E4E4"/>
+            <AcrylicBrush
+                x:Key="NavigationViewExpandedPaneBackground"
+                BackgroundSource="HostBackdrop"
+                FallbackColor="#E4E4E4"
+                TintColor="Azure"
+                TintOpacity="0.4" />
         </Grid.Resources>
 
-        <muxc:NavigationView 
-            x:Name="navView" 
-            Loaded="NavigationView_Loaded" 
-            SelectionChanged="NavigationView_SelectionChanged"
-            IsBackButtonVisible="Collapsed"
-            IsBackEnabled="False"
-            SelectionFollowsFocus="Disabled"
-            Header="Students"
+
+
+        <muxc:NavigationView
+            x:Name="navView"
             AlwaysShowHeader="True"
-            PaneDisplayMode="Auto"
-            Background="{StaticResource SystemChromeWhiteColor}" 
-            OpenPaneLength="320"
-            UseLayoutRounding="False" 
-            ScrollViewer.VerticalScrollBarVisibility="Auto" 
-            PaneTitle="UT-YCC Student Management"
+            Background="{StaticResource SystemChromeWhiteColor}"
+            Header="Students"
+            IsBackButtonVisible="Auto"
+            IsBackEnabled="True"
+            IsSettingsVisible="True"
             IsTitleBarAutoPaddingEnabled="True"
-            >
+            ItemInvoked="NavigationView_ItemInvoked"
+            Loaded="NavigationView_Loaded"
+            OpenPaneLength="320"
+            PaneDisplayMode="Auto"
+            PaneTitle="UT-YCC Student Management"
+            ScrollViewer.VerticalScrollBarVisibility="Auto"
+            SelectionChanged="NavigationView_SelectionChanged"
+            SelectionFollowsFocus="Disabled"
+            UseLayoutRounding="False">
             <muxc:NavigationView.MenuItems>
-                <muxc:NavigationViewItem Icon="People" Content="Students" Tag="students" Width="320"/>
-                <muxc:NavigationViewItem Icon="Bookmarks" Content="Gradings" Tag="gradings" Width="320"/>
-                <muxc:NavigationViewItem Icon="ContactInfo" Content="Statistics and Reports" Tag="reports" Width="320"/>
-                <muxc:NavigationViewItem Icon="Print" Content="Print" Tag="print" Width="320"/>
-                <muxc:NavigationViewItem Icon="Admin" Content="Users" Tag="users" Width="320"/>
+                <muxc:NavigationViewItem
+                    Width="320"
+                    Content="Students"
+                    Icon="People"
+                    Tag="students" />
+                <muxc:NavigationViewItem
+                    Width="320"
+                    Content="Gradings"
+                    Icon="Bookmarks"
+                    Tag="gradings" />
+                <muxc:NavigationViewItem
+                    Width="320"
+                    Content="Statistics and Reports"
+                    Icon="ContactInfo"
+                    Tag="reports" />
+                <muxc:NavigationViewItem
+                    Width="320"
+                    Content="Print"
+                    Icon="Print"
+                    Tag="print" />
+                <muxc:NavigationViewItem
+                    Width="320"
+                    Content="Users"
+                    Icon="Admin"
+                    Tag="users" />
             </muxc:NavigationView.MenuItems>
 
-            <Frame x:Name="ContentFrame"/>
+
+
+            <Frame x:Name="ContentFrame" />
 
         </muxc:NavigationView>
     </Grid>

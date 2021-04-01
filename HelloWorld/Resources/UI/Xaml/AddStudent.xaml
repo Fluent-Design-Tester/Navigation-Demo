@@ -9,16 +9,18 @@
     mc:Ignorable="d">
 
     <Grid>
-        <TextBlock
-            Margin="20,20,0,0"
-            Style="{StaticResource HeaderTextBlockStyle}"
-            Text="Add Student" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-        <HyperlinkButton
-            Margin="20,100,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Click="HyperlinkButton_Click"
-            Content="Click to go to students page" />
+        <StackPanel>
+            <HyperlinkButton
+                Margin="20,100,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="HyperlinkButton_Click"
+                Content="Click to go to students page" />
+        </StackPanel>
     </Grid>
 </Page>

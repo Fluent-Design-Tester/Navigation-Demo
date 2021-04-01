@@ -19,10 +19,15 @@ namespace HelloWorld
 {
     public sealed partial class MainPage : Windows.UI.Xaml.Controls.Page
     {
+
         public MainPage()
         {
             this.InitializeComponent();
             this.SizeChanged += MainPage_SizeChanged;
+
+            // Theme changing
+            FrameworkElement root = (FrameworkElement)Window.Current.Content;
+            root.RequestedTheme = AppSettings.Theme;
         }
 
         private void MainPage_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -73,6 +78,15 @@ namespace HelloWorld
                         ContentFrame.Navigate(typeof(Users));
                         break;
                 }
+            }
+        }
+
+        private void NavigationView_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
+        {
+            if (args.IsSettingsInvoked)
+            {
+                sender.Header = "Settings";
+                ContentFrame.Navigate(typeof(Settings));
             }
         }
     }
